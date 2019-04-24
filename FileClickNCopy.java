@@ -14,7 +14,7 @@ public class FileClickNCopy {
 		String input = keyboard.next(); // Abbruch bei for-Schleife, wenn kein korrekter Pfad angegeben wird. Siehe README.
 		
 		File folder = new File(input);
-        File[] listOfFiles = folder.listFiles();
+        	File[] listOfFiles = folder.listFiles();
 		
 		System.out.print("Where do you want your files to go? Enter the path and add a new folder name at the end: ");
 		String targetFolderInput = keyboard.next(); // Falls nicht genauer definiert, erstellt Zielordner im Ordner des ausgeführten Programms. Siehe README.
