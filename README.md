@@ -2,7 +2,7 @@
 [WIP] Simples Programm zum Kopieren/Einfügen von (ausgewählten) Dateien.
 
 ## (Lern-)Ziel
-Ausührbares Programm mit dazugehöriger Benutzeroberfläche, welches die spätere Nutzung vereinfachen soll.
+Ausführbares Programm mit dazugehöriger Benutzeroberfläche, welches die spätere Nutzung vereinfachen soll.
 
 ## To-Do
 Noch einiges. Grob nach Priorität sortiert:
