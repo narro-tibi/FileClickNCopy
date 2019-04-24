@@ -23,7 +23,7 @@ public class FileClickNCopy {
 		Files.createDirectories(targetDir);
 
 		for (File file : listOfFiles)
-        {
+        	{
 			String sourceString = file.getAbsolutePath(); //Get String-variant of each file-path and converts to Path
 			Path source = Paths.get(sourceString);
 			//System.out.println(source + "\nIs it an absolute path? " + source.isAbsolute()); // Check, ob korrektes Path-Objekt
