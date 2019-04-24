@@ -13,4 +13,7 @@ Noch einiges. Grob nach Priorität sortiert:
    - Eventuelle Abwandlung des Codes mit z.B. SimpleFileVisitor-Klasse. Mal schauen.
 - [ ] Erstellung einer (simplen) grafischen Benutzeroberfläche.
    - Ergänzend zur direkten Eingabe eines Pfads auch die Möglichkeit, Ordner über ein Dropdown-Menü auszuwählen.
+- [ ] Die Möglichkeit, Dateien im Zielordner (nach Belieben) umzubennen.
 
+## Sonstiges
+Code ist noch ein lustiger Mix aus Deutsch und Englisch.
