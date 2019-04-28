@@ -8,14 +8,15 @@ import java.util.Scanner;
 
 public class FileClickNCopy {
 	
-	public static boolean isValidPath(String input1) {
+	public static String isValidPath(String takenInput) {
 		Scanner keyboard1 = new Scanner(System.in);
 			
-		while (!Paths.get(input1).isAbsolute()) {
-			System.out.println("This is not a valid path. Please enter a valid path." + Paths.get(input1).isAbsolute());
-			input1 = keyboard1.nextLine();
+		while (!Paths.get(takenInput).isAbsolute()) {
+			System.out.println(takenInput + " - This is not a valid path. Please enter a valid path.");
+			takenInput = keyboard1.nextLine();
 		}
-		return true;
+		//System.out.println("Whee!");
+		return takenInput;
 	} 
 	
 	public static void main(String args[]) throws IOException {
@@ -23,14 +24,16 @@ public class FileClickNCopy {
 		Scanner keyboard = new Scanner(System.in);
 		System.out.print("Which folder do you want to copy? Enter the entire path: ");
 		String input = keyboard.nextLine();
-		System.out.println("This is a valid path. Great job! " + isValidPath(input));
+		input = isValidPath(input);
+		System.out.println("This is a valid path. Great job! " + "\n(Your path: " + isValidPath(input) + ")");
 		
 		File folder = new File(input);
     		File[] listOfFiles = folder.listFiles();
 		
-		System.out.print("Where do you want your files to go? Enter the path and, if you like, add a new folder name at the end: ");
+		System.out.print("Where do you want your files to go? Enter the entire path. \nIf you like, you can also add one or multiple new folders at the end: ");
 		String targetFolderInput = keyboard.nextLine();
-		System.out.println("This is a valid path. Great job! " + isValidPath(targetFolderInput));
+		targetFolderInput = isValidPath(targetFolderInput);
+		System.out.println("This is a valid path. Great job! " + "\n(Your path: " + isValidPath(targetFolderInput) + ")");
 		
 		Path targetDir = Paths.get(targetFolderInput); 
 		Files.createDirectories(targetDir);
