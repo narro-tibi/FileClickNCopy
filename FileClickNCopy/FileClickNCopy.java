@@ -7,21 +7,34 @@ import java.nio.file.StandardCopyOption;
 import java.util.Scanner;
 
 public class FileClickNCopy {
+	
+	public static boolean isValidPath(String input1) {
+		Scanner keyboard1 = new Scanner(System.in);
+			
+		while (!Paths.get(input1).isAbsolute()) {
+			System.out.println("This is not a valid path. Please enter a valid path." + Paths.get(input1).isAbsolute());
+			input1 = keyboard1.nextLine();
+		}
+		return true;
+	} 
+	
 	public static void main(String args[]) throws IOException {
 		
 		Scanner keyboard = new Scanner(System.in);
 		System.out.print("Which folder do you want to copy? Enter the entire path: ");
-		String input = keyboard.nextLine(); // Abbruch bei for-Schleife, wenn kein korrekter Pfad angegeben wird. Siehe README.
+		String input = keyboard.nextLine();
+		System.out.println("This is a valid path. Great job! " + isValidPath(input));
 		
 		File folder = new File(input);
     		File[] listOfFiles = folder.listFiles();
 		
-		System.out.print("Where do you want your files to go? Enter the path and add a new folder name at the end: ");
-		String targetFolderInput = keyboard.nextLine(); // Falls nicht genauer definiert, erstellt Zielordner im Ordner des ausgeführten Programms. Siehe README.
+		System.out.print("Where do you want your files to go? Enter the path and, if you like, add a new folder name at the end: ");
+		String targetFolderInput = keyboard.nextLine();
+		System.out.println("This is a valid path. Great job! " + isValidPath(targetFolderInput));
 		
 		Path targetDir = Paths.get(targetFolderInput); 
 		Files.createDirectories(targetDir);
-
+		
 		for (File file : listOfFiles)
     		{
 			String sourceString = file.getAbsolutePath();
