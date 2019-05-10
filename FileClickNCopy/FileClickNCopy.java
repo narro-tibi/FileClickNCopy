@@ -38,8 +38,7 @@ public class FileClickNCopy {
 		Path targetDir = Paths.get(targetFolderInput); 
 		Files.createDirectories(targetDir);
 		
-		for (File file : listOfFiles)
-    		{
+		for (File file : listOfFiles) {
 			String sourceString = file.getAbsolutePath();
 			Path source = Paths.get(sourceString);
 			//System.out.println(source + "\nIs it an absolute path? " + source.isAbsolute()); // Check, ob korrektes Path-Objekt
@@ -50,6 +49,20 @@ public class FileClickNCopy {
 			
 			//System.out.println(Files.exists(source) + " " + Files.isDirectory(source)); // Check, ob File-Typ und ob es Unterordner gibt
 			Files.copy(source, target, StandardCopyOption.REPLACE_EXISTING);
-		}			
+		}
+		
+		System.out.print("Would you like to delete the original files? \n(Y / N) ");
+		String answer = keyboard.next();
+		
+		if(answer.toUpperCase().equals("Y")) {
+			for (File file : listOfFiles) {
+				Path sourceStringDel = file.toPath();
+				Files.delete(sourceStringDel);
+			}
+			System.out.println("The files have been deleted!");
+		}
+		else {
+		System.out.print("Alright, they won't be deleted.");
+		}
 	}
 }
